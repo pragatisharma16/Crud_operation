@@ -1,0 +1,139 @@
+<div class="container-fluid">
+
+  <div fxLayout="row" fxLayout="row wrap">
+    <div style="width:50%;margin-left: 25%;
+    margin-top: 6%;"  fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" >
+    <div fxLayout="row"  class="dashcard mat-elevation-z4 "  >
+      <div fxFlex="30" fxLayout="row"  fxLayoutAlign="center center" style="background-color:#7986CB">
+
+
+        <div mat-card-avatar class="example-header-image">
+
+          <img style="width:100%;height:100%" [src]="url" alt='' >
+          <p>{{names}}</p>
+          <p>{{names.value}}</p>
+
+        </div>
+
+
+      </div>
+      <div  fxFlex="70" fxLayout="column" fxLayoutAlign="center center" style="background-color:#5C6BC0" >
+
+        <div >
+          <form [formGroup]="form" >
+            <mat-horizontal-stepper id="profile" labelPosition="bottom" #stepper>
+              <mat-step >
+                <ng-template matStepLabel>Personal Info</ng-template>
+                <small class="text-danger">{{error}}</small>
+
+
+                <p>
+                  <mat-form-field appearance="standard">
+                    <mat-label>  Customer Name
+                      <small class="text-danger" [class.d-none] = "custname.valid || custname.untouched">*</small>
+                    </mat-label>
+                    <input [class.is-invalid] = "custname.invalid && custname.touched" formControlName="CustName" id = "cust_name"  matInput placeholder="Customer name"     >
+                  </mat-form-field></p>
+
+
+                  <p>
+                    <mat-form-field style="margin-top: -32px;"appearance="standard">
+                      <mat-label>  Email
+
+                      </mat-label>
+                      <input [readonly]="true"   formControlName="Email"   value={{email1}} id="email" matInput placeholder="Email" >
+                      {{email1.value}}
+                    </mat-form-field></p>
+
+
+                    <p>
+                      <mat-form-field style="margin-top: -32px;" appearance="standard">
+                        <mat-label>  Mobile Number
+
+                          <small class="text-danger" [class.d-none] = "mobile.valid || mobile.untouched">*</small>
+                        </mat-label>
+                        <input [class.is-invalid] = "mobile.invalid && mobile.touched " formControlName="Mobile"   id="mobile" matInput placeholder="Mobile Number" >
+
+                      </mat-form-field></p>
+
+                      <div>
+
+                        <button style="margin-right: 20px;" mat-raised-button color="primary"  (click) = "onSubmit()">Save</button>
+                        <button mat-raised-button color="warn"  >cancel</button>
+
+                      </div>
+                    </mat-step>
+                    <mat-step>
+                      <ng-template matStepLabel>Change Avatar</ng-template>
+                      <small class="text-danger">{{error}}</small>
+
+                      <label for="singleFile" style="margin-top:10%">Upload file</label>
+                      <!-- <input id="singleFile" type="file"  #image (change)="processFile($event)"> -->
+                      <input type='file' (change)="processFile($event)">
+                      <div class='item'>
+                        <button style="margin-top: 100px;
+
+                        margin-right: 20px;"  mat-raised-button color="primary" type="button" name="button" value="Upload" class="btn green-btn gallery-upload" (click)="onUpload(image)">Save</button>
+
+
+
+                        <button mat-raised-button color="warn"  >cancel</button>
+
+                      </div>
+                    </mat-step>
+
+
+
+                    <mat-step>
+                      <ng-template matStepLabel>Done</ng-template>
+
+                      <div>
+                        <ng-template matStepLabel>Change Password</ng-template>
+                        <small class="text-danger">{{error}}</small>
+
+                        <p>
+                          <mat-form-field appearance="standard">
+                            <mat-label> Current Password
+                              <small class="text-danger" [class.d-none] = "Password.valid || Password.untouched">*</small>
+                            </mat-label>
+                            <input    type="password" formControlName="Password"   matInput placeholder="Current password"     >
+                          </mat-form-field></p>
+
+
+                          <p>
+                            <mat-form-field style="margin-top: -32px;" appearance="standard">
+                              <mat-label> New Password
+
+                                <small class="text-danger" [class.d-none] = "confirmPassword.valid || confirmPassword.untouched">*</small>
+                              </mat-label>
+                              <input  type="password" formControlName="confirmPassword" matInput placeholder="Confirm password" >
+                            </mat-form-field></p>
+
+
+                            <p>
+                              <mat-form-field style="margin-top: -32px;"appearance="standard">
+                                <mat-label> Retype Password
+
+                                  <small class="text-danger" [class.d-none] = "retypePassword.valid || retypePassword.untouched">*</small>
+                                </mat-label>
+                                <input   type="password" formControlName="retypePassword" matInput placeholder="Retype password" >
+                              </mat-form-field></p>
+
+                              <div>
+
+
+                                <button style="margin-right: 20px;" mat-raised-button color="primary"  (click) = "submitPassword()">Submit</button>
+                                <button mat-raised-button color="warn"  >cancel</button>
+
+                              </div>
+
+                            </div>
+                          </mat-step>
+                        </mat-horizontal-stepper>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>

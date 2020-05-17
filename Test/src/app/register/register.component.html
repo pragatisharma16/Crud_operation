@@ -1,0 +1,90 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css" rel="stylesheet">
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
+
+
+<div class="container" style="background-color: #262424;
+border-radius: 5%;
+margin-top: 6%;max-width: 720px;
+height :460px !important;
+border: r;
+
+color: gray;">
+<div>
+<form [formGroup]= "form"  style="background-color: #262424;" (ngSubmit) = "onSubmit()">
+  <div class="form-row">
+    <div class="col">
+      <!-- First name -->
+      <div class="md-form form-group">
+        <input [class.is-invalid] = "firstname.invalid && firstname.touched" formControlName="FirstName" placeholder = "name" type="text" id="materialRegisterFormFirstName" class="form-control">
+        <small class="text-danger" [class.d-none] = "firstname.valid || firstname.untouched">Firstname is required</small>
+        <!-- <label>First name</label> -->
+      </div>
+    </div>
+    <div class="col">
+      <!-- Last name -->
+      <div class="md-form form-group">
+        <input [class.is-invalid] = "lastname.invalid && lastname.touched " formControlName="LastName" placeholder = "last name" type="email" id="materialRegisterFormLastName" class="form-control">
+        <small class = "text-danger" [class.d-none] = "lastname.valid || lastname.untouched">Lastname is required</small>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- <div class="col"> -->
+  <div class="md-form form-group">
+
+    <input [class.is-invalid] = "mobile.invalid && mobile.touched " formControlName="Mobile" placeholder="Mobile Number" type="text" id="materialRegisterFormMobile" class="form-control">
+    <div *ngIf="mobile.invalid && mobile.touched">
+      <small *ngIf="mobile.errors?.required" class= "text-danger">Mobile Number is required</small>
+      <small *ngIf= "mobile.errors?.pattern" class= "text-danger">Mobile Number is invalid</small>
+
+    </div>
+  </div>
+
+  <!-- </div> -->
+
+
+
+
+  <div class="form-row">
+    <div class="col">
+      <div class="md-form form-group">
+        <input [class.is-invalid] = "email.invalid && email.touched " formControlName="Email" placeholder="Email" type="text" id="materialRegisterFormEmail" class="form-control">
+        <div *ngIf="email.invalid && email.touched">
+          <small *ngIf="email.errors?.required" class= "text-danger">Email is required</small>
+          <small *ngIf= "email.errors?.pattern" class= "text-danger">Email is invalid</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="md-form form-group">
+        <input formControlName="Password" type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
+        <label >Password</label>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Sign up button -->
+  <button  class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Register</button>
+
+
+</form>
+</div>
+</div>

@@ -1,0 +1,72 @@
+<div class="container-fluid">
+
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css" rel="stylesheet">
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
+<div class="container" style="background-color: #3f3f3f;
+
+border-radius: 20px;
+
+margin-top: 0;
+margin-left:60%;
+box-shadow: 26px 165px 170px rgb(0, 0, 0);
+
+width: 250px;
+
+height: 295px;
+
+border: r;
+
+color: gray;">
+<div>
+<form [formGroup]= "form"  (ngSubmit) = "onSubmit()">
+
+<small class="text-danger">{{error}}</small>
+  <div class="form-row">
+    <br>
+        <br>    <br>    <br>    <br>    <br>
+
+      <div class="md-form form-group">
+
+      <input [class.is-invalid] = " email.invalid && email.touched "  placeholder="email" formControlName="Email" type="text" id="materialRegisterFormPassword" class="form-control">
+      <small class="text-danger" [class.d-none] =" email.valid || email.untouched">email is required</small>
+    </div>
+
+
+
+
+      <div class="md-form form-group">
+            <br>
+
+      <input [class.is-invalid] = " password.invalid && password.touched "  placeholder="Password" formControlName="Password" type="password" id="materialRegisterFormPassword" class="form-control">
+      <small class="text-danger" [class.d-none] =" password.valid || password.untouched">Password is required</small>
+    </div>
+</div>
+
+
+
+
+    <button type="submit" style="border-radius: 10px;
+width: 36%;margin-left:29%;">Submit</button><br><br>
+
+
+
+
+</form>
+</div>
+</div>
+</div>
