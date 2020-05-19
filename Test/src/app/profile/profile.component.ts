@@ -11,7 +11,7 @@ export class ProfileComponent implements OnInit {
   public email1:any;
   public old_pass:any;
   public error:any;
-  public names:any;
+  public names = '';
 
   url:any;
   get custname(){
@@ -49,7 +49,6 @@ export class ProfileComponent implements OnInit {
 
 
 
-
   })
   ngOnInit() {
     this.email1 = localStorage.getItem('email');
@@ -58,13 +57,8 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmit(form){
-    this.name = this.form.value.CustName ;
-    if(this.form.value.CustName == '' && this.form.value.Mobile == ''){
-      this.error = "Fill all the fields";
-      setTimeout( () => {
-        this.error = '';
-      }, 2000);
-    }else{
+    this.names = this.form.value.CustName ;
+    if(this.form.value.CustName != '' && this.form.value.Mobile != ''){
       this._test.persnalInfo(this.form.value).subscribe
       (
         response => {
@@ -78,6 +72,12 @@ export class ProfileComponent implements OnInit {
         error =>
         {    console.log('error',error)}
       );
+    }else{
+      this.error = "Fill all the fields";
+      setTimeout( () => {
+        this.error = '';
+      }, 2000);
+
     }
   }
 
